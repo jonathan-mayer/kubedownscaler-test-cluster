@@ -7,7 +7,7 @@ spec:
   releaseName: kubedownscaler
   chart:
     spec:
-      chart: kubedownscaler
+      chart: go-kube-downscaler
       sourceRef:
         kind: HelmRepository
         name: kubedownscaler
