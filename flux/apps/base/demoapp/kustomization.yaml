@@ -7,12 +7,10 @@ resources:
   - release.yaml
 patches:
   - patch: |
-      apiVersion: apps/v1
-      kind: Deployment
-      metadata:
-        name: demoapp-caas-demoapp
-        annotations:
+      - op: add
+        path: /metadata/annotations
+        value:
           "downscaler/force-downtime": "true"
     target:
       kind: Deployment
-      labelSelector: app.kubernetes.io/name=caas-demoapp
+      name: demoapp-caas-demoapp
