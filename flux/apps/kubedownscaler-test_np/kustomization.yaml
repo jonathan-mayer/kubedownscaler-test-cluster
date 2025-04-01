@@ -6,4 +6,6 @@ resources:
 patches:
   - path: kubedownscaler-values.yaml
     target:
+      name: kubedownscaler
+      namespace: kubedownscaler
       kind: HelmRelease
