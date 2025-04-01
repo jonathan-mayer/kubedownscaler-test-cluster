@@ -1,22 +1,43 @@
 # kubedownscaler-test-cluster
 
-A repo for holding kubernetes manifests and configurations for cd which are used for testing the kubedownscalers
-
-## Setup with Kubernetes in Docker (KIND)
+A repo for holding kubernetes manifests and configurations for cd which are useful for testing the kubedownscalers
 
 There are two versions available:
 
 - kubedownscaler-test (has proxy configuration)
 - kubedownscaler-test_np (without proxy configuration)
 
-### Prerequisites and Creating the Cluster
+The downscaler itself is deployed via FluxCD.
+Additionally, there will be some test applications deployed via FluxCD and ArgoCD. <!--TODO-->
+
+## Prerequisites/Useful Kubernetes CLIs
 
 ```bash
-brew install kind fluxcd/tap/flux
+brew install kubectl k9s helm
+```
 
-kind create cluster --name kubedownscaler-test --config kind/kubedownscaler-test/config.yaml
+## Setup with Kubernetes in Docker (KIND)
+
+### Install KIND CLI
+
+```bash
+brew install kind
+```
+
+### Creating the Cluster
+
+```bash
+kind create cluster --name kubedownscaler-test --config kind/kubedownscaler-test/config.yaml # or kind/kubedownscaler-test_np/config.yaml
 # to delete:
 # kind delete cluster --name kubedownscaler-test
+```
+
+## Setup FluxCD
+
+### Install FluxCD CLI
+
+```bash
+brew install fluxcd/tap/flux
 ```
 
 ### GitHub PAT Setup
@@ -33,7 +54,7 @@ Set the permissions to:
 
 Add this to your .env file.
 
-### Setup FluxCD
+### Install FluxCD on Cluster
 
 ```bash
 dotenv
@@ -43,7 +64,7 @@ flux bootstrap github \
   --repository=$GITHUB_REPO \
   --branch=main \
   --path=flux/clusters/kubedownscaler-test \
-  --personal
+  --personal # or --path=flux/clusters/kubedownscaler-test_np
 # to uninstall:
 # flux uninstall
 ```
