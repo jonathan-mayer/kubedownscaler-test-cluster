@@ -6,4 +6,4 @@ metadata:
 spec:
   type: oci
   interval: 1m
-  url: oci://mtr.devops.telekom.de/caas/charts/go-kube-downscaler
+  url: oci://ghcr.io/caas-team/charts/go-kube-downscaler
