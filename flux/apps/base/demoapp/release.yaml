@@ -26,4 +26,3 @@ spec:
                 path: /metadata/annotations
                 value:
                   "downscaler/force-downtime": "true"
-                  "test": "true"
