@@ -3,5 +3,4 @@ kind: Kustomization
 namespace: flux-test-apps
 resources:
   - namespace.yaml
-  - repository.yaml
-  - release.yaml
+  - deployment.yaml

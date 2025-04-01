@@ -68,3 +68,27 @@ flux bootstrap github \
 # to uninstall:
 # flux uninstall
 ```
+
+## Future Ideas
+
+Make a helm chart that through the values.yaml file can start some deployments that are useful for testing the downscaler live.
+
+values.yaml could look like this:
+
+```yaml
+deployments:
+  replicas: 3
+  image: nginx
+
+  tests:
+    - name: excluded
+      labels:
+        "downscaler/excluded": true
+    - name: included
+      labels:
+        "downscaler/excluded": false
+    - name: something-else
+      labels:
+        "downscaler/an-option": "value"
+        "downscaler/another-option": "another value"
+```
