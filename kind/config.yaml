@@ -1,0 +1,10 @@
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+networking:
+  podSubnet: "172.16.0.0/16"
+containerdConfigPatches:
+  - |-
+    [proxy]
+      http_proxy = "http://10.91.6.12:443"
+      https_proxy = "http://10.91.6.12:443"
+      no_proxy = ".cluster.local.,.cluster.local,.svc,.otc-service.com,.telekom.de,.t-systems.com,10.0.0.0/8,localhost,127.0.0.1"

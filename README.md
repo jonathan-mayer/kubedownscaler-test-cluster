@@ -9,7 +9,7 @@ A repo for holding kubernetes manifests and configurations for cd which are used
 ```bash
 brew install kind fluxcd/tap/flux
 
-kind create cluster --name kubedownscaler-test
+kind create cluster --name kubedownscaler-test --config kind/config.yaml
 # to delete:
 # kind delete cluster --name kubedownscaler-test
 ```
