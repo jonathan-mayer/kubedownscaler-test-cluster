@@ -82,13 +82,13 @@ deployments:
 
   tests:
     - name: excluded
-      labels:
-        "downscaler/excluded": true
+      annotations:
+        "downscaler/excluded": "true"
     - name: included
-      labels:
-        "downscaler/excluded": false
+      annotations:
+        "downscaler/excluded": "false"
     - name: something-else
-      labels:
+      annotations:
         "downscaler/an-option": "value"
         "downscaler/another-option": "another value"
 ```
