@@ -4,12 +4,17 @@ A repo for holding kubernetes manifests and configurations for cd which are used
 
 ## Setup with Kubernetes in Docker (KIND)
 
+There are two versions available:
+
+- kubedownscaler-test (has proxy configuration)
+- kubedownscaler-test_np (without proxy configuration)
+
 ### Prerequisites and Creating the Cluster
 
 ```bash
 brew install kind fluxcd/tap/flux
 
-kind create cluster --name kubedownscaler-test --config kind/config.yaml
+kind create cluster --name kubedownscaler-test --config kind/kubedownscaler-test/config.yaml
 # to delete:
 # kind delete cluster --name kubedownscaler-test
 ```
