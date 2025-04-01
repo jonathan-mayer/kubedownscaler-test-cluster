@@ -8,7 +8,10 @@ A repo for holding kubernetes manifests and configurations for cd which are used
 
 ```bash
 brew install kind fluxcd/tap/flux
+
 kind create cluster --name kubedownscaler-test
+# to delete:
+# kind delete cluster --name kubedownscaler-test
 ```
 
 ### GitHub PAT Setup
@@ -36,4 +39,6 @@ flux bootstrap github \
   --branch=main \
   --path=flux/clusters/kubedownscaler-test \
   --personal
+# to uninstall:
+# flux uninstall
 ```

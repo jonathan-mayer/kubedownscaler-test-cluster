@@ -1,5 +1,24 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-- gotk-components.yaml
-- gotk-sync.yaml
+  - gotk-components.yaml
+  - gotk-sync.yaml
+patches:
+  - patch: |
+      apiVersion: apps/v1
+      kind: Deployment
+      metadata:
+        name: all
+      spec:
+        template:
+          spec:
+            containers:
+              - name: manager
+                env:
+                  - name: "HTTPS_PROXY"
+                    value: "http://10.91.6.12:443" # specify your proxy here
+                  - name: "NO_PROXY"
+                    value: ".cluster.local.,.cluster.local,.svc,.otc-service.com,.telekom.de,.t-systems.com,10.0.0.0/8,localhost,127.0.0.1" # specify your no proxy rules here incl. ".cluster.local.,.cluster.local,.svc"
+    target:
+      kind: Deployment
+      labelSelector: app.kubernetes.io/part-of=flux
