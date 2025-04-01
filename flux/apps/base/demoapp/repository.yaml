@@ -4,5 +4,5 @@ metadata:
   name: caas-charts
   namespace: flux-test-apps
 spec:
-  interval: 10m
+  interval: 1m
   url: https://caas-team.github.io/helm-charts
