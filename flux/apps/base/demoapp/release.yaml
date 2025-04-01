@@ -1,0 +1,17 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: demoapp
+  namespace: flux-test-apps
+spec:
+  releaseName: demoapp
+  chart:
+    spec:
+      chart: caas-demoapp
+      sourceRef:
+        kind: HelmRepository
+        name: caas-charts
+  interval: 1m
+  install:
+    remediation:
+      retries: 3
