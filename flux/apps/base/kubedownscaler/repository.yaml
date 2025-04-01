@@ -1,9 +1,8 @@
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
-  name: kubedownscaler
+  name: caas-charts
   namespace: kubedownscaler
 spec:
-  type: oci
   interval: 1m
-  url: oci://ghcr.io/caas-team/charts/go-kube-downscaler
+  url: https://caas-team.github.io/helm-charts
