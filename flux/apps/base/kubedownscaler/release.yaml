@@ -10,7 +10,7 @@ spec:
       chart: go-kube-downscaler
       sourceRef:
         kind: HelmRepository
-        name: kubedownscaler
+        name: caas-charts
   interval: 1m
   install:
     remediation:
