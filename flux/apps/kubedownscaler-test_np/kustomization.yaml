@@ -3,9 +3,15 @@ kind: Kustomization
 resources:
   - ../base/kubedownscaler
   - ../base/demoapp
+  - ../base/argocd
 patches:
   - path: kubedownscaler-values.yaml
     target:
       name: kubedownscaler
       namespace: kubedownscaler
+      kind: HelmRelease
+  - path: argocd-values.yaml
+    target:
+      name: argocd
+      namespace: argocd
       kind: HelmRelease

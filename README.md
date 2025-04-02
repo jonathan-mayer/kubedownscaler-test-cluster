@@ -8,6 +8,7 @@ There are two versions available:
 - kubedownscaler-test_np (without proxy configuration)
 
 The downscaler itself is deployed via FluxCD.
+FluxCD is deployed via bootstrap and ArgoCD is deployed via FluxCD.
 Additionally, there will be some test applications deployed via FluxCD and ArgoCD. <!--TODO-->
 
 ## Prerequisites/Useful Kubernetes CLIs
