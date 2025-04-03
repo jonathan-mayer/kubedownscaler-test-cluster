@@ -70,6 +70,21 @@ flux bootstrap github \
 # flux uninstall
 ```
 
+## Setup ArgoCD
+
+### Install ArgoCD CLI
+
+```bash
+brew install argocd
+```
+
+### Install ArgoCD on Cluster
+
+Normally ArgoCD is installed via FluxCD so this is only required if you do not want to install Flux.
+The Downscaler itself is also managed via flux so it will also have to be installed manually without Flux.
+
+https://argo-cd.readthedocs.io/en/stable/operator-manual/installation
+
 ## Future Ideas
 
 Make a helm chart that through the values.yaml file can start some deployments that are useful for testing the downscaler live.
