@@ -85,6 +85,28 @@ The Downscaler itself is also managed via flux so it will also have to be instal
 
 https://argo-cd.readthedocs.io/en/stable/operator-manual/installation
 
+### Forward Argo Server
+
+```bash
+kubectl port-forward svc/argocd-server -n argocd 8080:443
+```
+
+### Get Initial Password
+
+```bash
+argocd admin initial-password -n argocd
+```
+
+### Login to WebGui
+
+Go to localhost:8080 and log in.w
+
+### Login via Cli
+
+```bash
+argocd login localhost:8080
+```
+
 ## Future Ideas
 
 Make a helm chart that through the values.yaml file can start some deployments that are useful for testing the downscaler live.
